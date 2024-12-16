@@ -30,4 +30,24 @@ int main()
     else {
         item->show();
     }
+    cout << "===========================" << endl;
+    //string userNum;
+    cin >> userNum;
+
+    item = find_if(tableKharkiv.begin(), tableKharkiv.end(), [userNum](const Train a) {
+        return (a.getNumber() == userNum);
+        });
+    if (item == tableKharkiv.end()) {
+        cout << "No such train" << endl;
+    }
+    else {
+        tableKharkiv.erase(item);
+    }
+
+    p = tableKharkiv.begin();
+    while (p != tableKharkiv.end()) {
+        p->showLine();
+        cout << endl;
+        p++;
+    }
 }
