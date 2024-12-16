@@ -9,6 +9,7 @@ int main()
     tableKharkiv.insert(Train("OD193", "Odessa", Time_(12, 0, 0), 10));
     tableKharkiv.insert(Train("DN912", "Dnipro", Time_(20, 0, 0), 10));
     set<Train>::iterator p;
+    //inOrder (sortedOrder)
     p = tableKharkiv.begin();
     while (p != tableKharkiv.end()) {
         p->showLine();
