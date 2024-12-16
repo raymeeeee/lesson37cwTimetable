@@ -11,7 +11,7 @@ protected:
 	string number;
 	string station;
 	Time_ departure;
-	int duration;
+	int duration; //wait for departure
 public:
 	Train() {
 		number = "undefined";
@@ -36,6 +36,23 @@ public:
 
 	void showLine()const {
 		cout << departure << " - " << departure + duration << " " << number << " " << station << endl;
+	}
+	
+	bool operator<(const Train& obj)const {
+		if (this->departure < obj.departure) {
+			return true;
+		}
+		else if (this->departure == obj.departure) {
+			if (this->number < obj.number) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
 	}
 
 	void show()const {
