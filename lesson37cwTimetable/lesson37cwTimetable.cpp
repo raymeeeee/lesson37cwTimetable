@@ -1,4 +1,5 @@
 #include <set>
+#include <algorithm>
 #include "Train.h"
 
 int main()
@@ -16,5 +17,17 @@ int main()
         cout << endl;
         p++;
     }
+    cout << "===========================" << endl;
+    string userNum;
+    cin >> userNum;
 
+    auto item = find_if(tableKharkiv.begin(), tableKharkiv.end(), [userNum](const Train a) {
+        return (a.getNumber() == userNum);
+        });
+    if (item == tableKharkiv.end()) {
+        cout << "No such train" << endl;
+    }
+    else {
+        item->show();
+    }
 }
